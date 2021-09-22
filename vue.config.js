@@ -1,9 +1,9 @@
 module.exports = {
-  transpileDependencies: [
-    'vuetify'
-  ],
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/dist/'
-    : '/'
+    ? '/my-app-todo/'
+    : '/',
+   transpileDependencies: [
+    'vuetify'
+  ]
 }
 
