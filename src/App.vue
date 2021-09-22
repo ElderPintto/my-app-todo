@@ -1,6 +1,5 @@
 <template>
   <v-app id="inspire">
-  
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -15,16 +14,8 @@
 
       <v-divider></v-divider>
 
-      <v-list
-        dense
-        nav
-      >
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          :to="item.to"
-          link
-        >
+      <v-list dense nav>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -36,7 +27,7 @@
       </v-list>
     </v-navigation-drawer>
 
-<v-app-bar
+    <v-app-bar
       app
       color="primary"
       dark
@@ -60,7 +51,6 @@
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-
     </v-app-bar>
 
     <v-main>
@@ -74,8 +64,8 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: "Todo", icon: "mdi-format-list-checks", to:"/"},
-      { title: "About", icon: "mdi-help-box" , to: "/about"},
+      { title: "Todo", icon: "mdi-format-list-checks", to: "/" },
+      { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
     right: null,
   }),

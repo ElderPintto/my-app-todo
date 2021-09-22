@@ -1,6 +1,5 @@
 <template>
   <div class="todo ">
-
     <v-text-field
       v-model="newTitleTask"
       @click:append="addTask"
@@ -17,7 +16,7 @@
       <div v-for="task in tasks" :key="task.id">
         <v-list-item
           @click="doneTask(task.id)"
-          :class="{'indigo lighten-5': task.done}"
+          :class="{ 'indigo lighten-5': task.done }"
         >
           <template v-slot:default>
             <v-list-item-action>
@@ -25,11 +24,15 @@
             </v-list-item-action>
 
             <v-list-item-content>
-              <v-list-item-title :class="{'text-decoration-line-through':  task.done}"> {{ task.title }}</v-list-item-title>
+              <v-list-item-title
+                :class="{ 'text-decoration-line-through': task.done }"
+              >
+                {{ task.title }}</v-list-item-title
+              >
             </v-list-item-content>
 
             <v-list-item-action>
-              <v-btn icon  @click.stop="deleteTask(task.id)">
+              <v-btn icon @click.stop="deleteTask(task.id)">
                 <v-icon color="gray lighten-1">mdi-DotsVertical</v-icon>
               </v-btn>
             </v-list-item-action>
@@ -46,34 +49,32 @@ export default {
   name: "Home",
   data() {
     return {
-      newTitleTask: '',
+      newTitleTask: "",
       tasks: [],
     };
   },
   methods: {
     doneTask(id) {
-      let task = this.tasks.filter(task => task.id === id)[0]
-      task.done = !task.done
+      let task = this.tasks.filter((task) => task.id === id)[0];
+      task.done = !task.done;
     },
 
     deleteTask(id) {
-      this.tasks = this.tasks.filter(task => task.id !== id)
+      this.tasks = this.tasks.filter((task) => task.id !== id);
     },
 
-    addTask(){
-      if(this.newTitleTask) {
+    addTask() {
+      if (this.newTitleTask) {
         let newTask = {
-          id : Date.now(),
-          title : this.newTitleTask,
-          done: false
-        }
+          id: Date.now(),
+          title: this.newTitleTask,
+          done: false,
+        };
 
-        this.tasks.push(newTask)
-        this.newTitleTask = ''
+        this.tasks.push(newTask);
+        this.newTitleTask = "";
       }
-
-    }
-
-  }
+    },
+  },
 };
 </script>
